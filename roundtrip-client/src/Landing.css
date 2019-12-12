@@ -1,0 +1,33 @@
+.navBorder {
+  border: 1px solid black;
+  background: #1aa3ff;
+  padding: 1% 2%;
+  list-style-type: none;
+  font-size: 1em;
+}
+.mainUpper {
+  display: flex;
+  justify-content: space-between;
+}
+.mainLower {
+  margin-top: 3%;
+  display: flex;
+  justify-content: space-between;
+}
+img {
+  width: 60%;
+  height: auto;
+  max-height: 300px;
+  margin-left: 3%;
+}
+.mainBody {
+  margin-right: 03%;
+}
+.aboutDescription {
+  max-width: 95%;
+  padding: 5% 1%;
+  text-align: center;
+  border: 1px solid #1aa3ff;
+  margin: 2% 0;
+  border-radius: 10px;
+}
