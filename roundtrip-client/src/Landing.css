@@ -1,6 +1,6 @@
 .navBorder {
   border: 1px solid black;
-  background: #1aa3ff;
+  background: #336eff;
   padding: 1% 2%;
   list-style-type: none;
   font-size: 1em;
@@ -27,7 +27,12 @@ img {
   max-width: 95%;
   padding: 5% 1%;
   text-align: center;
-  border: 1px solid #1aa3ff;
+  border: 1px solid #336eff;
   margin: 2% 0;
   border-radius: 10px;
+}
+
+.logos {
+  width: 40px;
+  height: 40px;
 }

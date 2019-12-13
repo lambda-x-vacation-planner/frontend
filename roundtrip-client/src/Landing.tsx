@@ -1,7 +1,12 @@
 import React from 'react';
 import './Landing.css';
+import { Link, animateScroll } from 'react-scroll';
 import { Gallery, GalleryImage } from 'react-gesture-gallery';
-import { Button, Form } from 'react-bootstrap';
+import { Register } from './Register';
+
+import facebookLogo from './resources/iconfinder_1_Facebook_colored_svg_copy_5296499.png';
+import linkedInLogo from './resources/iconfinder_1_Linkedin_unofficial_colored_svg_5296501.png';
+import twitterLogo from './resources/iconfinder_1_Twitter_colored_svg_5296514.png';
 
 const images = [
   'https://images.unsplash.com/photo-1559666126-84f389727b9a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1356&q=80',
@@ -18,7 +23,6 @@ const images = [
 
 export const LandingPage = () => {
   const [index, setIndex] = React.useState<number>(0);
-  const [display, setDisplay] = React.useState<string>('none');
 
   React.useEffect(() => {
     const timer = setInterval(() => {
@@ -31,10 +35,6 @@ export const LandingPage = () => {
     return () => clearInterval(timer);
   }, [index]);
 
-  const showSignUp = () => {
-    setDisplay('block');
-  };
-
   return (
     <div style={{ backgroundColor: '#ff99cc', paddingTop: '2%' }}>
       <header
@@ -45,7 +45,7 @@ export const LandingPage = () => {
           paddingRight: '3%',
         }}
       >
-        <div>
+        <div onClick={() => animateScroll.scrollToTop()}>
           <h2 style={{ fontSize: '1.5em', color: '#0033cc' }}>
             roundtrip{' '}
             <span role="img" aria-label="coconut-tree">
@@ -56,13 +56,14 @@ export const LandingPage = () => {
         <div>
           <nav>
             <ul style={{ display: 'flex' }}>
-              <li
-                onClick={showSignUp}
-                className="navBorder"
-                style={{ width: '100px', textAlign: 'center', borderRadius: '5px' }}
-              >
-                Sign Up
-              </li>
+              <Link to="contact" smooth={true} duration={1000}>
+                <li
+                  className="navBorder"
+                  style={{ width: '100px', textAlign: 'center', borderRadius: '5px' }}
+                >
+                  Sign Up
+                </li>
+              </Link>
               <li
                 className="navBorder"
                 style={{
@@ -179,60 +180,16 @@ export const LandingPage = () => {
           </Gallery>
         </div>
       </article>
-      <Form style={{ paddingLeft: '40%', display: display }}>
-        <Form.Group controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
-          <Form.Control type="email" placeholder="Enter email" style={{ width: '30%' }} />
-          <Form.Text className="text-muted">
-            We'll never share your email with anyone else.
-          </Form.Text>
-        </Form.Group>
-        <Form.Group controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
-          <Form.Control type="password" placeholder="Password" style={{ width: '30%' }} />
-        </Form.Group>
-        <Form.Group controlId="formBasicPassword">
-          <Form.Label>Username</Form.Label>
-          <Form.Control type="text" placeholder="Username" style={{ width: '30%' }} />
-        </Form.Group>
-        <Form.Group controlId="formBasicPassword">
-          <Form.Label>Name</Form.Label>
-          <Form.Control type="text" placeholder="Name" style={{ width: '30%' }} />
-        </Form.Group>
-        <Form.Group controlId="formBasicPassword">
-          <Form.Label>Photo</Form.Label>
-          <Form.Control type="image" placeholder="Photo" style={{ width: '30%' }} />
-        </Form.Group>
-        <Form.Group controlId="formBasicPassword">
-          <Form.Label>Role</Form.Label>
-          <Form.Control type="text" placeholder="Role" style={{ width: '30%' }} />
-        </Form.Group>
+      <Register />
+      <footer style={{ marginTop: '2%', paddingBottom: '3%', textAlign: 'center' }}>
+        <div>
+          <img className="logos" src={facebookLogo} alt="facebook-logo" />
 
-        <Button variant="primary" type="submit">
-          Register
-        </Button>
-      </Form>
-      <footer style={{ marginTop: '2%' }}>
-        <ul>
-          <li>
-            <img
-              src="./resources/iconfinder_1_Facebook_colored_svg_copy_5296499.png"
-              alt="facebook-logo"
-            />
-          </li>
-          <li>
-            <img
-              src="./resources/iconfinder_1_Linkedin_unofficial_colored_svg_5296501.png"
-              alt="linkedIn-logo"
-            />
-          </li>
-          <li>
-            <img
-              src="./resources/iconfinder_1_Twitter_colored_svg_5296514.png"
-              alt="twitter-logo"
-            />
-          </li>
-        </ul>
+          <img className="logos" src={linkedInLogo} alt="linkedIn-logo" />
+
+          <img className="logos" src={twitterLogo} alt="twitter-logo" />
+          <span style={{ marginLeft: '3%' }}>all rights reserved</span>
+        </div>
       </footer>
     </div>
   );
