@@ -38,11 +38,13 @@ export const LandingPage = () => {
   return (
     <div style={{ backgroundColor: '#ff99cc', paddingTop: '2%' }}>
       <header
+        className="header"
         style={{
           display: 'flex',
           justifyContent: 'space-between',
           paddingLeft: '3%',
-          paddingRight: '3%',
+          paddingRight: '5%',
+          marginBottom: '3%',
         }}
       >
         <div onClick={() => animateScroll.scrollToTop()}>
@@ -59,7 +61,11 @@ export const LandingPage = () => {
               <Link to="contact" smooth={true} duration={1000}>
                 <li
                   className="navBorder"
-                  style={{ width: '100px', textAlign: 'center', borderRadius: '5px' }}
+                  style={{
+                    width: '100px',
+                    textAlign: 'center',
+                    borderRadius: '5px',
+                  }}
                 >
                   Sign Up
                 </li>
@@ -68,7 +74,7 @@ export const LandingPage = () => {
                 className="navBorder"
                 style={{
                   marginLeft: '20%',
-                  width: '100px',
+                  width: '9em',
                   textAlign: 'center',
                   borderRadius: '5px',
                 }}
@@ -97,7 +103,7 @@ export const LandingPage = () => {
       </article>
       <main className="mainBody">
         <div className="mainUpper">
-          <ul>
+          {/* <ul>
             <li style={{ listStyleType: 'none', marginBottom: '20%', fontSize: '1.2em' }}>
               hi, this is some{' '}
               <span role="img" aria-label="captain">
@@ -122,18 +128,29 @@ export const LandingPage = () => {
                 👮🏻‍♀️👩🏻‍🦳
               </span>
             </li>
-          </ul>
+          </ul> */}
+          <p style={{ width: '40%', paddingLeft: '3%' }}>
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+            has been the industry's standard dummy text ever since the 1500s, when an unknown
+            printer took a galley of type and scrambled it to make a type specimen book. It has
+            survived not only five centuries, but also the leap into electronic typesetting,
+            remaining essentially unchanged. It was popularised in the 1960s with the release of
+            Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
+            publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+          </p>
           <img
-            src="https://images.unsplash.com/photo-1571942332186-2ad40056197b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"
-            alt="people with suitcase"
+            className="asideImg1"
+            src="https://images.unsplash.com/photo-1468774871041-fc64dd5522f3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
+            alt="boat"
           />
         </div>
         <div className="mainLower">
           <img
+            className="asideImg2"
             src="https://images.unsplash.com/photo-1575900549163-94c30dd9cc44?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"
             alt="people with suitcase"
           />
-          <ul>
+          {/* <ul>
             <li style={{ listStyleType: 'none', marginBottom: '20%', fontSize: '1.2em' }}>
               hi, this is some{' '}
               <span role="img" aria-label="captain">
@@ -158,7 +175,16 @@ export const LandingPage = () => {
                 👮🏻‍♀️👩🏻‍🦳
               </span>
             </li>
-          </ul>
+          </ul> */}
+          <p style={{ width: '40%', paddingLeft: '2%', marginRight: '2%' }}>
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+            has been the industry's standard dummy text ever since the 1500s, when an unknown
+            printer took a galley of type and scrambled it to make a type specimen book. It has
+            survived not only five centuries, but also the leap into electronic typesetting,
+            remaining essentially unchanged. It was popularised in the 1960s with the release of
+            Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
+            publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+          </p>
         </div>
       </main>
       <article>

@@ -1,10 +1,19 @@
 .navBorder {
   border: 1px solid black;
   background: #336eff;
-  padding: 1% 2%;
   list-style-type: none;
   font-size: 1em;
 }
+.header {
+  overflow: hidden;
+  z-index: 99;
+  background: #e30879;
+  padding: 2% 0;
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%; /* Full width */
+}
+
 .mainUpper {
   display: flex;
   justify-content: space-between;
@@ -15,7 +24,7 @@
   justify-content: space-between;
 }
 img {
-  width: 60%;
+  width: 80%;
   height: auto;
   max-height: 300px;
   margin-left: 3%;
@@ -28,8 +37,15 @@ img {
   padding: 5% 1%;
   text-align: center;
   border: 1px solid #336eff;
-  margin: 2% 0;
+  margin: 8% 0;
   border-radius: 10px;
+}
+.asideImg1 {
+  width: 50%;
+  margin-right: 2%;
+}
+.asideImg2 {
+  width: 50%;
 }
 
 .logos {
