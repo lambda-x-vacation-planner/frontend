@@ -7,6 +7,9 @@ import { Register } from './Register';
 import facebookLogo from './resources/iconfinder_1_Facebook_colored_svg_copy_5296499.png';
 import linkedInLogo from './resources/iconfinder_1_Linkedin_unofficial_colored_svg_5296501.png';
 import twitterLogo from './resources/iconfinder_1_Twitter_colored_svg_5296514.png';
+import instagramLogo from './resources/iconfinder_1_Instagram_colored_svg_1_5296765.png';
+import youtubeLogo from './resources/iconfinder_1_Youtube_colored_svg_5296521.png';
+import whatsAppLogo from './resources/iconfinder_1_Whatsapp2_colored_svg_5296520.png';
 
 const images = [
   'https://images.unsplash.com/photo-1559666126-84f389727b9a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1356&q=80',
@@ -188,13 +191,14 @@ export const LandingPage = () => {
         </div>
       </main>
       <article>
-        <div>
+        <div
+          style={{
+            marginTop: '2%',
+            height: '60vh',
+            width: '100vw',
+          }}
+        >
           <Gallery
-            style={{
-              marginTop: '2%',
-              height: '60vh',
-              width: '100vw',
-            }}
             index={index}
             onRequestChange={i => {
               setIndex(i);
@@ -207,14 +211,15 @@ export const LandingPage = () => {
         </div>
       </article>
       <Register />
-      <footer style={{ marginTop: '2%', paddingBottom: '3%', textAlign: 'center' }}>
-        <div>
+      <footer className="footer">
+        <div style={{ paddingTop: '1%' }}>
+          <p>Join our robust social media community</p>
           <img className="logos" src={facebookLogo} alt="facebook-logo" />
-
+          <img className="logos" src={youtubeLogo} alt="youtube-logo" />
+          <img className="logos" src={instagramLogo} alt="instagram-logo" />
+          <img className="logos" src={whatsAppLogo} alt="whatsapp-logo" />
           <img className="logos" src={linkedInLogo} alt="linkedIn-logo" />
-
           <img className="logos" src={twitterLogo} alt="twitter-logo" />
-          <span style={{ marginLeft: '3%' }}>all rights reserved</span>
         </div>
       </footer>
     </div>

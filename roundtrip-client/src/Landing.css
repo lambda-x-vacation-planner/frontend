@@ -37,7 +37,7 @@ img {
   padding: 5% 1%;
   text-align: center;
   border: 1px solid #336eff;
-  margin: 8% 0;
+  margin: 8% 0 4% 0;
   border-radius: 10px;
 }
 .asideImg1 {
@@ -49,6 +49,13 @@ img {
 }
 
 .logos {
-  width: 40px;
-  height: 40px;
+  width: 2em;
+  height: 2em;
+}
+
+.footer {
+  margin-top: 2%;
+  padding-bottom: 3%;
+  text-align: center;
+  border-top: 1px solid #336eff;
 }
