@@ -9,6 +9,11 @@ interface LoginCred {
   password: string;
 }
 
+interface LoginAction {
+  type: typeof LOGIN_SUCCESS;
+  payload: LoginCred;
+}
+
 export const login = (obj: LoginCred) => (dispatch: Dispatch) => {
   dispatch({ type: LOGIN_START });
   return axios
@@ -19,3 +24,5 @@ export const login = (obj: LoginCred) => (dispatch: Dispatch) => {
     })
     .catch(err => console.log(err));
 };
+
+export type LoginActionTypes = LoginAction;

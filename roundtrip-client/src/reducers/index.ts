@@ -1,4 +1,8 @@
-import { LOGIN_START, LOGIN_SUCCESS } from '../actions';
+import { LOGIN_SUCCESS } from '../actions';
+import { REGISTER_SUCCESS } from '../actions';
+import { LoginActionTypes } from '../actions/login';
+import { RegisterActionTypes } from '../actions/register';
+import { combineReducers } from 'redux';
 
 interface InitialState {
   error: string;
@@ -8,25 +12,35 @@ interface InitialState {
 
 const initialState: InitialState = {
   error: '',
-  signingUp: false,
-  loggingIn: false,
+  signingUp: true,
+  loggingIn: true,
 };
 
-const reducer = (state = initialState, action) => {
+const loginReducer = (state = initialState, action: LoginActionTypes) => {
   switch (action.type) {
-    case LOGIN_START:
-      return {
-        ...state,
-        loggingIn: true,
-        error: '',
-      };
     case LOGIN_SUCCESS:
       return {
         ...state,
         loggingIn: false,
         error: '',
       };
+    default:
+      return state;
   }
 };
+const registerReducer = (state = initialState, action: RegisterActionTypes) => {
+  switch (action.type) {
+    case REGISTER_SUCCESS:
+      return {
+        ...state,
+        signingIn: false,
+        error: '',
+      };
+    default:
+      return state;
+  }
+};
+
+const reducer = combineReducers({ registerReducer, loginReducer });
 
 export default reducer;

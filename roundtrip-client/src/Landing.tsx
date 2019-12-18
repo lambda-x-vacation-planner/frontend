@@ -3,6 +3,8 @@ import './Landing.css';
 import { Link, animateScroll } from 'react-scroll';
 import { Gallery, GalleryImage } from 'react-gesture-gallery';
 import { Register } from './Register';
+import useFormValidation from './formValidation';
+import validateAuth from './formValidation';
 
 import facebookLogo from './resources/iconfinder_1_Facebook_colored_svg_copy_5296499.png';
 import linkedInLogo from './resources/iconfinder_1_Linkedin_unofficial_colored_svg_5296501.png';
@@ -24,8 +26,20 @@ const images = [
   'https://images.unsplash.com/flagged/photo-1574003854725-ef1e2b796f1a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
 ];
 
+const INITIAL_STATE = {
+  email: '',
+  password: '',
+};
 export const LandingPage = () => {
   const [index, setIndex] = React.useState<number>(0);
+  const {
+    handleSubmit,
+    handleChange,
+    handleBlur,
+    values,
+    errors,
+    isSubmitting,
+  } = useFormValidation(INITIAL_STATE, validateAuth);
 
   React.useEffect(() => {
     const timer = setInterval(() => {
