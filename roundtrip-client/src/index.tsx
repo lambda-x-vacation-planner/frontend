@@ -5,11 +5,12 @@ import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import './index.css';
 import App from './App';
+import reducer from './reducers';
 
 const store = createStore(reducer, applyMiddleware(thunk));
 
 ReactDOM.render(
-  <Provider>
+  <Provider store={store}>
     <App />
   </Provider>,
   document.getElementById('root'),
