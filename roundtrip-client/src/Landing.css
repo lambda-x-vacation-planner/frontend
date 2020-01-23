@@ -4,6 +4,10 @@
   list-style-type: none;
   font-size: 1em;
 }
+.navBorder:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
 .header {
   overflow: hidden;
   z-index: 99;
@@ -48,6 +52,10 @@ img {
   width: 50%;
 }
 
+.topHover:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
 .logos {
   width: 2em;
   height: 2em;

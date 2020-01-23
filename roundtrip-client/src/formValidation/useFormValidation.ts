@@ -1,35 +1,34 @@
-import React, { SyntheticEvent, MouseEvent } from 'react';
+import React, { SyntheticEvent, MouseEvent, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { register } from '../actions';
+import { InitialState } from '../reducers';
 
-interface FormInputs {
-  email: string;
-  password: string;
-  name: string;
+interface ErrorKeys {
+  email?: string;
+  password?: string;
+  name?: string;
 }
 
-interface InputItems {
-  email: string;
-  password: string;
-}
-
-export const useFormValidation = (
-  initialState: FormInputs,
-  validate: (values: InputItems) => string,
-) => {
-  const [values, setValues] = React.useState(initialState);
-  const [errors, setErrors] = React.useState({});
-  const [isSubmitting, setSubmitting] = React.useState<boolean>(false);
+function useFormValidation(
+  initialState: InitialState,
+  validate: (values: InitialState) => ErrorKeys,
+) {
+  const [values, setValues] = useState(initialState);
+  const [errors, setErrors] = useState({} as ErrorKeys);
+  const [isSubmitting, setSubmitting] = useState<boolean>(false);
+  const dispatch = useDispatch();
 
   React.useEffect(() => {
     if (isSubmitting) {
       const noErrors = Object.keys(errors).length === 0;
       if (noErrors) {
-        console.log('authenticated!', values.email, values.password);
+        // console.log('authenticated!', values.email, values.password);
         setSubmitting(false);
       } else {
         setSubmitting(false);
       }
     }
-  }, [errors]);
+  }, [errors, isSubmitting]);
 
   const handleChange = (event: SyntheticEvent) => {
     const { name, value } = event.target as HTMLInputElement;
@@ -44,19 +43,33 @@ export const useFormValidation = (
     setErrors(validationErrors);
   };
 
-  const handleSubmit = (event: MouseEvent<HTMLButtonElement | null>) => {
+  const handleSubmitReg = (event: MouseEvent<HTMLFormElement>) => {
     event.preventDefault();
     const validationErrors = validate(values);
+    dispatch(register(values));
     setErrors(validationErrors);
     setSubmitting(true);
+    setValues(initialState);
+  };
+
+  const handleSubmitLogin = (event: MouseEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const validationErrors = validate(values);
+    dispatch(register(values));
+    setErrors(validationErrors);
+    setSubmitting(true);
+    setValues(initialState);
   };
 
   return {
-    handleSubmit,
+    handleSubmitReg,
+    handleSubmitLogin,
     handleChange,
     handleBlur,
     values,
     errors,
     isSubmitting,
   };
-};
+}
+
+export default useFormValidation;

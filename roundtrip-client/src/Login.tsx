@@ -3,11 +3,10 @@ import useFormValidation from './formValidation/useFormValidation';
 import validateAuth from './formValidation/validateAuth';
 import { Button, Form } from 'react-bootstrap';
 import { initialState } from './reducers';
-import './register.css';
 
-export const Register = () => {
+export const Login = () => {
   const {
-    handleSubmitReg,
+    handleSubmitLogin,
     handleChange,
     handleBlur,
     values,
@@ -17,7 +16,7 @@ export const Register = () => {
 
   return (
     <div id="contact">
-      <Form style={{ paddingLeft: '40%', marginTop: '2%' }} onSubmit={handleSubmitReg}>
+      <Form style={{ paddingLeft: '40%', marginTop: '2%' }} onSubmit={handleSubmitLogin}>
         <Form.Group controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control

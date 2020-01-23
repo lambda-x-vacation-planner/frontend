@@ -3,8 +3,6 @@ import './Landing.css';
 import { Link, animateScroll } from 'react-scroll';
 import { Gallery, GalleryImage } from 'react-gesture-gallery';
 import { Register } from './Register';
-import useFormValidation from './formValidation';
-import validateAuth from './formValidation';
 
 import facebookLogo from './resources/iconfinder_1_Facebook_colored_svg_copy_5296499.png';
 import linkedInLogo from './resources/iconfinder_1_Linkedin_unofficial_colored_svg_5296501.png';
@@ -26,20 +24,8 @@ const images = [
   'https://images.unsplash.com/flagged/photo-1574003854725-ef1e2b796f1a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
 ];
 
-const INITIAL_STATE = {
-  email: '',
-  password: '',
-};
-export const LandingPage = () => {
+export const Landing = () => {
   const [index, setIndex] = React.useState<number>(0);
-  const {
-    handleSubmit,
-    handleChange,
-    handleBlur,
-    values,
-    errors,
-    isSubmitting,
-  } = useFormValidation(INITIAL_STATE, validateAuth);
 
   React.useEffect(() => {
     const timer = setInterval(() => {
@@ -65,7 +51,7 @@ export const LandingPage = () => {
         }}
       >
         <div onClick={() => animateScroll.scrollToTop()}>
-          <h2 style={{ fontSize: '1.5em', color: '#0033cc' }}>
+          <h2 style={{ fontSize: '1.5em', color: '#0033cc' }} className="topHover">
             roundtrip{' '}
             <span role="img" aria-label="coconut-tree">
               🌴
@@ -120,32 +106,6 @@ export const LandingPage = () => {
       </article>
       <main className="mainBody">
         <div className="mainUpper">
-          {/* <ul>
-            <li style={{ listStyleType: 'none', marginBottom: '20%', fontSize: '1.2em' }}>
-              hi, this is some{' '}
-              <span role="img" aria-label="captain">
-                👮🏻‍♀️👩🏻‍🦳
-              </span>
-            </li>
-            <li style={{ listStyleType: 'none', marginBottom: '20%', fontSize: '1.2em' }}>
-              hi, this is some{' '}
-              <span role="img" aria-label="captain">
-                👮🏻‍♀️👩🏻‍🦳
-              </span>
-            </li>
-            <li style={{ listStyleType: 'none', marginBottom: '20%', fontSize: '1.2em' }}>
-              hi, this is some{' '}
-              <span role="img" aria-label="captain">
-                👮🏻‍♀️👩🏻‍🦳
-              </span>
-            </li>
-            <li style={{ listStyleType: 'none', marginBottom: '20%', fontSize: '1.2em' }}>
-              hi, this is some{' '}
-              <span role="img" aria-label="captain">
-                👮🏻‍♀️👩🏻‍🦳
-              </span>
-            </li>
-          </ul> */}
           <p style={{ width: '40%', paddingLeft: '3%' }}>
             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
             has been the industry's standard dummy text ever since the 1500s, when an unknown
@@ -167,32 +127,6 @@ export const LandingPage = () => {
             src="https://images.unsplash.com/photo-1575900549163-94c30dd9cc44?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"
             alt="people with suitcase"
           />
-          {/* <ul>
-            <li style={{ listStyleType: 'none', marginBottom: '20%', fontSize: '1.2em' }}>
-              hi, this is some{' '}
-              <span role="img" aria-label="captain">
-                👮🏻‍♀️👩🏻‍🦳
-              </span>
-            </li>
-            <li style={{ listStyleType: 'none', marginBottom: '20%', fontSize: '1.2em' }}>
-              hi, this is some{' '}
-              <span role="img" aria-label="captain">
-                👮🏻‍♀️👩🏻‍🦳
-              </span>
-            </li>
-            <li style={{ listStyleType: 'none', marginBottom: '20%', fontSize: '1.2em' }}>
-              hi, this is some{' '}
-              <span role="img" aria-label="captain">
-                👮🏻‍♀️👩🏻‍🦳
-              </span>
-            </li>
-            <li style={{ listStyleType: 'none', marginBottom: '20%', fontSize: '1.2em' }}>
-              hi, this is some{' '}
-              <span role="img" aria-label="captain">
-                👮🏻‍♀️👩🏻‍🦳
-              </span>
-            </li>
-          </ul> */}
           <p style={{ width: '40%', paddingLeft: '2%', marginRight: '2%' }}>
             Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
             has been the industry's standard dummy text ever since the 1500s, when an unknown

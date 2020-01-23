@@ -11,7 +11,7 @@ interface LoginCred {
 
 interface LoginAction {
   type: typeof LOGIN_SUCCESS;
-  payload: LoginCred;
+  payload: LoginCred[];
 }
 
 export const login = (obj: LoginCred) => (dispatch: Dispatch) => {
@@ -20,7 +20,7 @@ export const login = (obj: LoginCred) => (dispatch: Dispatch) => {
     .post('https://ramble-round.herokuapp.com/user/login', obj)
     .then(res => {
       localStorage.setItem('token', res.data);
-      dispatch({ type: LOGIN_SUCCESS, payload: res.data });
+      dispatch<LoginAction>({ type: LOGIN_SUCCESS, payload: res.data });
     })
     .catch(err => console.log(err));
 };
