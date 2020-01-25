@@ -15,7 +15,14 @@ export const Login = () => {
   } = useFormValidation(initialState, validateAuth);
 
   return (
-    <div id="contact">
+    <div
+      style={{
+        marginTop: '6rem',
+        paddingTop: '5rem',
+        paddingBottom: '20rem',
+        backgroundColor: '#ff99cc',
+      }}
+    >
       <Form style={{ paddingLeft: '40%', marginTop: '2%' }} onSubmit={handleSubmitLogin}>
         <Form.Group controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
@@ -64,7 +71,7 @@ export const Login = () => {
         </Form.Group>
         {Object.values(values).indexOf('name') > -1 && <p className="error-text">{errors.name}</p>}
         <Button disabled={isSubmitting} variant="primary" type="submit" style={{ width: '15%' }}>
-          Register
+          Login
         </Button>
       </Form>
     </div>

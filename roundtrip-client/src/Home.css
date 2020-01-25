@@ -1,4 +1,4 @@
-.navBorder {
+/* .navBorder {
   border: 1px solid black;
   background: #336eff;
   list-style-type: none;
@@ -13,10 +13,10 @@
   z-index: 99;
   background: #e30879;
   padding: 2% 0;
-  position: fixed; /* Set the navbar to fixed position */
-  top: 0; /* Position the navbar at the top of the page */
-  width: 100%; /* Full width */
-}
+  position: fixed;
+  top: 0;
+  width: 100%;
+} */
 
 .mainUpper {
   display: flex;
@@ -52,10 +52,10 @@ img {
   width: 50%;
 }
 
-.topHover:hover {
+/* .topHover:hover {
   text-decoration: underline;
   cursor: pointer;
-}
+} */
 .logos {
   width: 2em;
   height: 2em;

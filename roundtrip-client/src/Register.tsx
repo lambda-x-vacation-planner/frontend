@@ -16,7 +16,7 @@ export const Register = () => {
   } = useFormValidation(initialState, validateAuth);
 
   return (
-    <div id="contact">
+    <div id="register">
       <Form style={{ paddingLeft: '40%', marginTop: '2%' }} onSubmit={handleSubmitReg}>
         <Form.Group controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>

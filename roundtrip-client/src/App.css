@@ -20,3 +20,44 @@
 .App-link {
   color: #09d3ac;
 }
+.navBorder {
+  /* border: 1px solid black;
+  background: #336eff; */
+  color: black;
+  list-style-type: none;
+  font-size: 1em;
+}
+.navBorder:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.header {
+  overflow: hidden;
+  z-index: 99;
+  background: #e30879;
+  padding: 2% 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+.topHover:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.logos {
+  width: 2em;
+  height: 2em;
+}
+/* img {
+  width: 80%;
+  height: auto;
+  max-height: 300px;
+  margin-left: 3%;
+} */
+
+.footer {
+  margin-top: 2%;
+  padding-bottom: 3%;
+  text-align: center;
+  border-top: 1px solid #336eff;
+}

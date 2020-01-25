@@ -1,6 +1,6 @@
 import React from 'react';
-import './Landing.css';
-import { Link, animateScroll } from 'react-scroll';
+import './Home.css';
+// import { Link, animateScroll } from 'react-scroll';
 import { Gallery, GalleryImage } from 'react-gesture-gallery';
 import { Register } from './Register';
 
@@ -24,7 +24,7 @@ const images = [
   'https://images.unsplash.com/flagged/photo-1574003854725-ef1e2b796f1a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
 ];
 
-export const Landing = () => {
+export const Home = () => {
   const [index, setIndex] = React.useState<number>(0);
 
   React.useEffect(() => {
@@ -40,54 +40,6 @@ export const Landing = () => {
 
   return (
     <div style={{ backgroundColor: '#ff99cc', paddingTop: '2%' }}>
-      <header
-        className="header"
-        style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          paddingLeft: '3%',
-          paddingRight: '5%',
-          marginBottom: '3%',
-        }}
-      >
-        <div onClick={() => animateScroll.scrollToTop()}>
-          <h2 style={{ fontSize: '1.5em', color: '#0033cc' }} className="topHover">
-            roundtrip{' '}
-            <span role="img" aria-label="coconut-tree">
-              🌴
-            </span>
-          </h2>
-        </div>
-        <div>
-          <nav>
-            <ul style={{ display: 'flex' }}>
-              <Link to="contact" smooth={true} duration={1000}>
-                <li
-                  className="navBorder"
-                  style={{
-                    width: '100px',
-                    textAlign: 'center',
-                    borderRadius: '5px',
-                  }}
-                >
-                  Sign Up
-                </li>
-              </Link>
-              <li
-                className="navBorder"
-                style={{
-                  marginLeft: '20%',
-                  width: '9em',
-                  textAlign: 'center',
-                  borderRadius: '5px',
-                }}
-              >
-                Login
-              </li>
-            </ul>
-          </nav>
-        </div>
-      </header>
       <article style={{ paddingLeft: '3%' }}>
         <div className="aboutDescription">
           <p>
