@@ -26,6 +26,7 @@ export const Register = () => {
             value={values.email}
             type="email"
             name="email"
+            required={true}
             placeholder="Email"
             style={{ width: '40%' }}
           />
@@ -44,6 +45,7 @@ export const Register = () => {
             value={values.password}
             type="password"
             name="password"
+            required={true}
             placeholder="Password"
             style={{ width: '40%' }}
           />
@@ -59,6 +61,7 @@ export const Register = () => {
             value={values.name}
             name="name"
             type="text"
+            required={true}
             placeholder="Name"
             style={{ width: '40%' }}
           />

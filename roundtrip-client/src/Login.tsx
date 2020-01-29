@@ -1,4 +1,5 @@
 import React from 'react';
+
 import useFormValidation from './formValidation/useFormValidation';
 import validateAuth from './formValidation/validateAuth';
 import { Button, Form } from 'react-bootstrap';
@@ -32,6 +33,7 @@ export const Login = () => {
             value={values.email}
             type="email"
             name="email"
+            required={true}
             placeholder="Email"
             style={{ width: '40%' }}
           />
@@ -50,6 +52,7 @@ export const Login = () => {
             value={values.password}
             type="password"
             name="password"
+            required={true}
             placeholder="Password"
             style={{ width: '40%' }}
           />
@@ -57,19 +60,7 @@ export const Login = () => {
         {Object.values(values).indexOf('password') > -1 && (
           <p className="error-text">{errors.password}</p>
         )}
-        <Form.Group controlId="formBasicPassword">
-          <Form.Label>Name</Form.Label>
-          <Form.Control
-            onChange={handleChange}
-            onBlur={handleBlur}
-            value={values.name}
-            name="name"
-            type="text"
-            placeholder="Name"
-            style={{ width: '40%' }}
-          />
-        </Form.Group>
-        {Object.values(values).indexOf('name') > -1 && <p className="error-text">{errors.name}</p>}
+
         <Button disabled={isSubmitting} variant="primary" type="submit" style={{ width: '15%' }}>
           Login
         </Button>

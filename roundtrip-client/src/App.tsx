@@ -4,9 +4,14 @@ import { Home } from './Home';
 import { Route, NavLink, BrowserRouter as Router } from 'react-router-dom';
 import { animateScroll, Link } from 'react-scroll';
 import { Login } from './Login';
+import { Main } from './Main';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const App: React.FC = () => {
+  const doubleClick = () => {
+    animateScroll.scrollToTop();
+  };
+
   return (
     <div>
       <Router>
@@ -21,7 +26,7 @@ const App: React.FC = () => {
               marginBottom: '3%',
             }}
           >
-            <div onClick={() => animateScroll.scrollToTop()}>
+            <div onClick={() => doubleClick()}>
               <h2 style={{ fontSize: '1.5em', color: '#0033cc' }} className="topHover">
                 roundtrip{' '}
                 <span role="img" aria-label="coconut-tree">
@@ -50,11 +55,26 @@ const App: React.FC = () => {
                       style={{
                         marginLeft: '20%',
                         width: '5em',
+                        pointerEvents: 'none',
                         textAlign: 'center',
                         borderRadius: '5px',
                       }}
                     >
                       Login
+                    </li>
+                  </NavLink>
+                  <NavLink to="/main">
+                    <li
+                      className="navBorder"
+                      style={{
+                        marginLeft: '20%',
+                        width: '5em',
+                        pointerEvents: 'none',
+                        textAlign: 'center',
+                        borderRadius: '5px',
+                      }}
+                    >
+                      Main
                     </li>
                   </NavLink>
                   <NavLink to="/">
@@ -77,6 +97,7 @@ const App: React.FC = () => {
           <div>
             <Route path="/login" component={Login} />
             <Route exact path="/" component={Home} />
+            <Route path="/main" component={Main} />
           </div>
         </div>
       </Router>

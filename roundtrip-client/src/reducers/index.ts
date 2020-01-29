@@ -17,9 +17,6 @@ export const initialState: InitialState = {
   name: '',
   email: '',
   password: '',
-  // error: '',
-  // signingUp: true,
-  // loggingIn: true,
 };
 
 const loginReducer = (state = initialState, action: LoginActionTypes) => {

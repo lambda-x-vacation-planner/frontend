@@ -1,6 +1,6 @@
 import React, { SyntheticEvent, MouseEvent, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { register } from '../actions';
+import { register, login } from '../actions';
 import { InitialState } from '../reducers';
 
 interface ErrorKeys {
@@ -22,7 +22,6 @@ function useFormValidation(
     if (isSubmitting) {
       const noErrors = Object.keys(errors).length === 0;
       if (noErrors) {
-        // console.log('authenticated!', values.email, values.password);
         setSubmitting(false);
       } else {
         setSubmitting(false);
@@ -55,7 +54,7 @@ function useFormValidation(
   const handleSubmitLogin = (event: MouseEvent<HTMLFormElement>) => {
     event.preventDefault();
     const validationErrors = validate(values);
-    dispatch(register(values));
+    dispatch(login(values));
     setErrors(validationErrors);
     setSubmitting(true);
     setValues(initialState);

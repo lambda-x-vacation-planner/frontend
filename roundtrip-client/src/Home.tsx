@@ -1,6 +1,5 @@
 import React from 'react';
 import './Home.css';
-// import { Link, animateScroll } from 'react-scroll';
 import { Gallery, GalleryImage } from 'react-gesture-gallery';
 import { Register } from './Register';
 
