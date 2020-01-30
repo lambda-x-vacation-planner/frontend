@@ -47,9 +47,13 @@ export const Main = () => {
               longitude={selectLocation.lon}
               onClose={() => setSelectLocation(null)}
             >
-              <div style={{ padding: '1rem' }}>
+              <div style={{ padding: '1rem', textAlign: 'center' }}>
                 <h4>{selectLocation.country}</h4>
-                <h4>{selectLocation.capital}</h4>
+                <img
+                  src={selectLocation.picture}
+                  alt="tourist-destination"
+                  style={{ width: '22em', height: '12em' }}
+                />
               </div>
             </Popup>
           ) : null}
