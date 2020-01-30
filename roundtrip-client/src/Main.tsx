@@ -8,8 +8,8 @@ export const Main = () => {
   console.log('locations ', locations);
   const [selectLocation, setSelectLocation] = useState<any>();
   const [viewport, setViewport] = useState({
-    latitude: 36.778259,
-    longitude: -119.417931,
+    latitude: 39.381266,
+    longitude: -97.922211,
     width: '80vw',
     height: '60vh',
     zoom: 10,
@@ -42,8 +42,15 @@ export const Main = () => {
             </Marker>
           ))}
           {selectLocation ? (
-            <Popup latitude={selectLocation.lat} longitude={selectLocation.lon}>
-              <div>park</div>
+            <Popup
+              latitude={selectLocation.lat}
+              longitude={selectLocation.lon}
+              onClose={() => setSelectLocation(null)}
+            >
+              <div style={{ padding: '1rem' }}>
+                <h4>{selectLocation.country}</h4>
+                <h4>{selectLocation.capital}</h4>
+              </div>
             </Popup>
           ) : null}
         </ReactMapGL>
