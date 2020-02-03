@@ -1,5 +1,4 @@
 import React from 'react';
-
 import useFormValidation from './formValidation/useFormValidation';
 import validateAuth from './formValidation/validateAuth';
 import { Button, Form } from 'react-bootstrap';

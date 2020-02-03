@@ -6,6 +6,7 @@ import { animateScroll, Link } from 'react-scroll';
 import { Login } from './Login';
 import { Main } from './Main';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import PrivateRoute from './PrivateRoute';
 
 const App: React.FC = () => {
   const doubleClick = () => {
@@ -50,45 +51,13 @@ const App: React.FC = () => {
                     </li>
                   </Link>
                   <NavLink to="/login">
-                    <li
-                      className="navBorder"
-                      style={{
-                        marginLeft: '20%',
-                        width: '5em',
-                        pointerEvents: 'none',
-                        textAlign: 'center',
-                        borderRadius: '5px',
-                      }}
-                    >
-                      Login
-                    </li>
+                    <li className="navBorder">Login</li>
                   </NavLink>
                   <NavLink to="/main">
-                    <li
-                      className="navBorder"
-                      style={{
-                        marginLeft: '20%',
-                        width: '5em',
-                        pointerEvents: 'none',
-                        textAlign: 'center',
-                        borderRadius: '5px',
-                      }}
-                    >
-                      Main
-                    </li>
+                    <li className="navBorder">Main</li>
                   </NavLink>
                   <NavLink to="/">
-                    <li
-                      className="navBorder"
-                      style={{
-                        marginLeft: '20%',
-                        width: '5em',
-                        textAlign: 'center',
-                        borderRadius: '5px',
-                      }}
-                    >
-                      Home
-                    </li>
+                    <li className="navBorder">Home</li>
                   </NavLink>
                 </ul>
               </nav>
@@ -97,7 +66,7 @@ const App: React.FC = () => {
           <div>
             <Route path="/login" component={Login} />
             <Route exact path="/" component={Home} />
-            <Route path="/main" component={Main} />
+            <PrivateRoute exact path="/main" component={Main} />
           </div>
         </div>
       </Router>
