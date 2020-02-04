@@ -4,16 +4,19 @@ import { LoginActionTypes } from '../actions/login';
 import { RegisterActionTypes } from '../actions/register';
 import { combineReducers } from 'redux';
 
-interface InitialState {
-  error: string;
-  signingUp: boolean;
-  loggingIn: boolean;
+export interface InitialState {
+  name: string;
+  email: string;
+  password: string;
+  error?: string;
+  signingUp?: boolean;
+  loggingIn?: boolean;
 }
 
-const initialState: InitialState = {
-  error: '',
-  signingUp: true,
-  loggingIn: true,
+export const initialState: InitialState = {
+  name: '',
+  email: '',
+  password: '',
 };
 
 const loginReducer = (state = initialState, action: LoginActionTypes) => {

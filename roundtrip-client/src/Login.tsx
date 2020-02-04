@@ -3,11 +3,10 @@ import useFormValidation from './formValidation/useFormValidation';
 import validateAuth from './formValidation/validateAuth';
 import { Button, Form } from 'react-bootstrap';
 import { initialState } from './reducers';
-import './register.css';
 
-export const Register = () => {
+export const Login = () => {
   const {
-    handleSubmitReg,
+    handleSubmitLogin,
     handleChange,
     handleBlur,
     values,
@@ -16,8 +15,15 @@ export const Register = () => {
   } = useFormValidation(initialState, validateAuth);
 
   return (
-    <div id="register">
-      <Form style={{ paddingLeft: '40%', marginTop: '2%' }} onSubmit={handleSubmitReg}>
+    <div
+      style={{
+        marginTop: '6rem',
+        paddingTop: '5rem',
+        paddingBottom: '20rem',
+        backgroundColor: '#ff99cc',
+      }}
+    >
+      <Form style={{ paddingLeft: '40%', marginTop: '2%' }} onSubmit={handleSubmitLogin}>
         <Form.Group controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control
@@ -53,22 +59,9 @@ export const Register = () => {
         {Object.values(values).indexOf('password') > -1 && (
           <p className="error-text">{errors.password}</p>
         )}
-        <Form.Group controlId="formBasicPassword">
-          <Form.Label>Name</Form.Label>
-          <Form.Control
-            onChange={handleChange}
-            onBlur={handleBlur}
-            value={values.name}
-            name="name"
-            type="text"
-            required={true}
-            placeholder="Name"
-            style={{ width: '40%' }}
-          />
-        </Form.Group>
-        {Object.values(values).indexOf('name') > -1 && <p className="error-text">{errors.name}</p>}
+
         <Button disabled={isSubmitting} variant="primary" type="submit" style={{ width: '15%' }}>
-          Register
+          Login
         </Button>
       </Form>
     </div>

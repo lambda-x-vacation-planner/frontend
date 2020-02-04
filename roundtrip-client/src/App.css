@@ -20,3 +20,40 @@
 .App-link {
   color: #09d3ac;
 }
+.navBorder {
+  color: #0033cc;
+  list-style-type: none;
+  font-size: 1em;
+  margin-left: 20%;
+  width: 5em;
+  text-align: center;
+  border-radius: 5px;
+}
+.navBorder:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.header {
+  overflow: hidden;
+  z-index: 99;
+  background: #e30879;
+  padding: 2% 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+.topHover:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.logos {
+  width: 2em;
+  height: 2em;
+}
+
+.footer {
+  margin-top: 2%;
+  padding-bottom: 3%;
+  text-align: center;
+  border-top: 1px solid #336eff;
+}
