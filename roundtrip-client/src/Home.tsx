@@ -104,7 +104,7 @@ export const Home = () => {
             }}
           >
             {images.map(image => (
-              <GalleryImage objectFit="cover" key={image} src={image} />
+              <GalleryImage objectFit="cover" key={image} src={image} alt="sliding images" />
             ))}
           </Gallery>
         </div>

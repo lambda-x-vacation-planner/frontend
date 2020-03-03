@@ -53,7 +53,7 @@ export const Register = () => {
         {Object.values(values).indexOf('password') > -1 && (
           <p className="error-text">{errors.password}</p>
         )}
-        <Form.Group controlId="formBasicPassword">
+        <Form.Group controlId="formBasicName">
           <Form.Label>Name</Form.Label>
           <Form.Control
             onChange={handleChange}

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 const PrivateRoute: React.FC<any> = ({
   component: Component,
@@ -19,4 +20,5 @@ const PrivateRoute: React.FC<any> = ({
   />
 );
 
-export default PrivateRoute;
+// export default PrivateRoute;
+export default connect(null, {})(PrivateRoute);

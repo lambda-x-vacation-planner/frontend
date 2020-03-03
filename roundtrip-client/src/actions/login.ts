@@ -10,7 +10,7 @@ interface LoginCred {
 
 interface LoginAction {
   type: typeof LOGIN_SUCCESS;
-  payload: LoginCred[];
+  payload: LoginCred;
 }
 
 export const login = (obj: LoginCred) => (dispatch: Dispatch) => {
@@ -18,7 +18,6 @@ export const login = (obj: LoginCred) => (dispatch: Dispatch) => {
   return axios
     .post('https://ramble-round.herokuapp.com/user/login', obj)
     .then(res => {
-      console.log('login ', res.data.token);
       localStorage.setItem('token', res.data.token);
       dispatch<LoginAction>({ type: LOGIN_SUCCESS, payload: res.data });
     })

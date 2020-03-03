@@ -4,7 +4,7 @@ import validateAuth from './formValidation/validateAuth';
 import { Button, Form } from 'react-bootstrap';
 import { initialState } from './reducers';
 
-export const Login = () => {
+export const Login = (props: any) => {
   const {
     handleSubmitLogin,
     handleChange,
@@ -13,6 +13,12 @@ export const Login = () => {
     errors,
     isSubmitting,
   } = useFormValidation(initialState, validateAuth);
+
+  const signIn = (event: React.MouseEvent<HTMLFormElement>) => {
+    handleSubmitLogin(event);
+    console.log(props.history.push('/main'));
+    console.log(props.history);
+  };
 
   return (
     <div
@@ -23,7 +29,7 @@ export const Login = () => {
         backgroundColor: '#ff99cc',
       }}
     >
-      <Form style={{ paddingLeft: '40%', marginTop: '2%' }} onSubmit={handleSubmitLogin}>
+      <Form style={{ paddingLeft: '40%', marginTop: '2%' }} onSubmit={signIn}>
         <Form.Group controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control

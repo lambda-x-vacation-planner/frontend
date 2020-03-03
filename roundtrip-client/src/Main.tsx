@@ -2,12 +2,16 @@ import React, { useState, useEffect } from 'react';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import ReactMapGL, { Marker, Popup } from 'react-map-gl';
 import { Button, Dropdown } from 'react-bootstrap';
-import { initialState } from './reducers';
+import { useHistory } from 'react-router-dom';
 import './Main.css';
 import { locations } from './data';
+import { InitialState } from './reducers';
+import { useSelector } from 'react-redux';
 
 export const Main = () => {
   const [selectLocation, setSelectLocation] = useState<any>();
+  const user: string = useSelector((state: InitialState) => state.email);
+  const history = useHistory();
   const [viewport, setViewport] = useState({
     latitude: 39.381266,
     longitude: -97.922211,
@@ -16,9 +20,13 @@ export const Main = () => {
     zoom: 10,
   }) as any;
 
+  const logout = () => {
+    localStorage.clear();
+    history.push('/');
+  };
+
   useEffect(() => {
     const listener = (e: KeyboardEvent) => {
-      console.log('initialState ', initialState);
       if (e.key === 'Escape') {
         setSelectLocation(null);
       }
@@ -27,20 +35,20 @@ export const Main = () => {
     return () => {
       window.removeEventListener('keydown', listener);
     };
-  }, []);
+  });
 
   return (
     <>
       <div className="mainSearch">
         <Dropdown>
           <Dropdown.Toggle variant="success" id="dropdown-basic">
-            Tenzing Yeshi
+            {user}
           </Dropdown.Toggle>
 
           <Dropdown.Menu>
-            <Dropdown.Item href="#/action-1">Profile</Dropdown.Item>
-            <Dropdown.Item href="#/action-2">Setting</Dropdown.Item>
-            <Dropdown.Item href="#/action-3">Sign Out</Dropdown.Item>
+            <Dropdown.Item>Profile</Dropdown.Item>
+            <Dropdown.Item>Setting</Dropdown.Item>
+            <Dropdown.Item onClick={logout}>Log Out</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
         <input className="mainInput" type="text" placeholder="search" />
@@ -83,15 +91,6 @@ export const Main = () => {
             </Popup>
           ) : null}
         </ReactMapGL>
-      </div>
-      <div>
-        <form className="mainForm">
-          <input className="mainFormInput" type="text" />
-          <input className="mainFormInput" type="text" />
-          <input className="mainFormInput" type="text" />
-          <input className="mainFormInput" type="text" />
-          <Button style={{ marginTop: '1rem', width: '30%' }}>submit</Button>
-        </form>
       </div>
     </>
   );

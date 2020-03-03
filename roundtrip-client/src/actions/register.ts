@@ -12,7 +12,7 @@ interface RegisterCred {
 
 interface RegisterAction {
   type: typeof REGISTER_SUCCESS;
-  payload: string;
+  payload: RegisterCred;
 }
 
 export const register = (obj: RegisterCred) => (dispatch: Dispatch) => {
@@ -20,7 +20,8 @@ export const register = (obj: RegisterCred) => (dispatch: Dispatch) => {
   return axios
     .post('https://ramble-round.herokuapp.com/user/reg', obj)
     .then(res => {
-      console.log(res.data);
+      console.log('res ', res.data.user.name);
+      console.log('fired');
       localStorage.setItem('token', res.data.token);
       dispatch<RegisterAction>({ type: REGISTER_SUCCESS, payload: res.data });
     })
