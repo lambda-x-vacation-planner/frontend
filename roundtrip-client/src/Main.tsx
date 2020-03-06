@@ -10,7 +10,7 @@ import { useSelector } from 'react-redux';
 
 export const Main = () => {
   const [selectLocation, setSelectLocation] = useState<any>();
-  const user: string = useSelector((state: InitialState) => state.email);
+  const user = useSelector((state: InitialState) => state);
   const history = useHistory();
   const [viewport, setViewport] = useState({
     latitude: 39.381266,
@@ -26,6 +26,7 @@ export const Main = () => {
   };
 
   useEffect(() => {
+    console.log(user);
     const listener = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
         setSelectLocation(null);
@@ -35,14 +36,14 @@ export const Main = () => {
     return () => {
       window.removeEventListener('keydown', listener);
     };
-  });
+  }, [user]);
 
   return (
     <>
       <div className="mainSearch">
         <Dropdown>
           <Dropdown.Toggle variant="success" id="dropdown-basic">
-            {user}
+            {user.email}
           </Dropdown.Toggle>
 
           <Dropdown.Menu>
