@@ -26,7 +26,7 @@ export const Main = () => {
   };
 
   useEffect(() => {
-    console.log(user);
+    console.log('user.email', user.email);
     const listener = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
         setSelectLocation(null);

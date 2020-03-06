@@ -4,7 +4,7 @@ import validateAuth from './formValidation/validateAuth';
 import { Button, Form } from 'react-bootstrap';
 import { initialState } from './reducers';
 
-export const Login = (props: any) => {
+export const Login = () => {
   const {
     handleSubmitLogin,
     handleChange,
@@ -16,8 +16,6 @@ export const Login = (props: any) => {
 
   const signIn = (event: React.MouseEvent<HTMLFormElement>) => {
     handleSubmitLogin(event);
-    console.log(props.history.push('/main'));
-    console.log(props.history);
   };
 
   return (

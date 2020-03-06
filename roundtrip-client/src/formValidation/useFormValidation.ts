@@ -57,7 +57,7 @@ function useFormValidation(
     dispatch(login(values));
     setErrors(validationErrors);
     setSubmitting(true);
-    setValues(initialState);
+    // setValues(initialState);
   };
 
   return {
