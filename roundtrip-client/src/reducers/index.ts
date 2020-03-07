@@ -24,6 +24,7 @@ const loginReducer = (state = initialState, action: LoginActionTypes) => {
     case LOGIN_SUCCESS:
       return {
         ...state,
+        email: action.payload.email,
         loggingIn: false,
         error: '',
       };
