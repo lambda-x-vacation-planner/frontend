@@ -37,6 +37,7 @@ const registerReducer = (state = initialState, action: RegisterActionTypes) => {
     case REGISTER_SUCCESS:
       return {
         ...state,
+        name: action.payload.name,
         signingIn: false,
         error: '',
       };
