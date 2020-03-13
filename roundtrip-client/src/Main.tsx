@@ -10,7 +10,7 @@ import { useSelector } from 'react-redux';
 
 export const Main = () => {
   const [selectLocation, setSelectLocation] = useState<any>();
-  const user = useSelector((state: InitialState) => state);
+  const user: any = useSelector((state: InitialState) => state);
   const history = useHistory();
   const [viewport, setViewport] = useState({
     latitude: 39.381266,

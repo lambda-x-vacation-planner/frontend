@@ -17,6 +17,9 @@ export const initialState: InitialState = {
   name: '',
   email: '',
   password: '',
+  error: '',
+  loggingIn: true,
+  signingUp: true,
 };
 
 const loginReducer = (state = initialState, action: LoginActionTypes) => {
@@ -24,7 +27,6 @@ const loginReducer = (state = initialState, action: LoginActionTypes) => {
     case LOGIN_SUCCESS:
       return {
         ...state,
-        email: action.payload.email,
         loggingIn: false,
         error: '',
       };
@@ -37,8 +39,7 @@ const registerReducer = (state = initialState, action: RegisterActionTypes) => {
     case REGISTER_SUCCESS:
       return {
         ...state,
-        name: action.payload.name,
-        signingIn: false,
+        signingUp: false,
         error: '',
       };
     default:
