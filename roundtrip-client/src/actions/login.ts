@@ -18,6 +18,7 @@ export const login = (obj: LoginCred) => (dispatch: Dispatch) => {
   return axios
     .post('https://ramble-round.herokuapp.com/user/login', obj)
     .then(res => {
+      console.log(obj);
       localStorage.setItem('token', res.data.token);
       dispatch<LoginAction>({ type: LOGIN_SUCCESS, payload: res.data });
     })

@@ -27,6 +27,7 @@ const loginReducer = (state = initialState, action: LoginActionTypes) => {
     case LOGIN_SUCCESS:
       return {
         ...state,
+        email: action.payload.email,
         loggingIn: false,
         error: '',
       };
@@ -40,6 +41,7 @@ const registerReducer = (state = initialState, action: RegisterActionTypes) => {
       return {
         ...state,
         signingUp: false,
+
         error: '',
       };
     default:
@@ -49,4 +51,5 @@ const registerReducer = (state = initialState, action: RegisterActionTypes) => {
 
 const reducer = combineReducers({ registerReducer, loginReducer });
 
+export type AppState = ReturnType<typeof reducer>;
 export default reducer;

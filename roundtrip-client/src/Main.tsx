@@ -5,12 +5,13 @@ import { Button, Dropdown } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 import './Main.css';
 import { locations } from './data';
-import { InitialState } from './reducers';
+import { AppState, InitialState } from './reducers';
 import { useSelector } from 'react-redux';
 
 export const Main = () => {
   const [selectLocation, setSelectLocation] = useState<any>();
-  const user: any = useSelector((state: InitialState) => state);
+  // const user: any = useSelector((state: AppState) => state.loginReducer);
+  const user: any = useSelector((state: InitialState) => state.email);
   const history = useHistory();
   const [viewport, setViewport] = useState({
     latitude: 39.381266,
@@ -43,7 +44,7 @@ export const Main = () => {
       <div className="mainSearch">
         <Dropdown>
           <Dropdown.Toggle variant="success" id="dropdown-basic">
-            {user.email}
+            {user}
           </Dropdown.Toggle>
 
           <Dropdown.Menu>
